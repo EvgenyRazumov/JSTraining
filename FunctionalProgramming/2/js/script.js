@@ -5,22 +5,5 @@
             return a + b;
         });
     }
-
-    function curry(f) {
-        var argsLength = f.length,
-            args = [],
-            callNumber = 0;
-
-        return function(x) {
-            debugger;
-            args.push(x);
-            callNumber++;
-            if (callNumber < argsLength){
-                return this;
-            }
-            return f.apply(null, args);
-        };
-    }
-
-    curry(sum)(1)(2)(3);
+    console.log(FunctionalProgramming.curry(sum)(5)(2)(3));
 })();
