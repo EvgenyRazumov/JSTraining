@@ -6,10 +6,16 @@ FunctionalProgramming.fold = function(array, callback, initialValue) {
         prevValue = initialValue;
     for (var i = 0; i < array.length; i++) {
         currentVal = array[i];
-        if (res == null) {
-            res = callback(prevValue, currentVal, i, array);
+
+        if (!initialValue && i == 0) {
+            //go to the next step
+            prevValue = currentVal;    
         } else {
-            res += callback(prevValue, currentVal, i, array);
+            if (res == null) {
+                res = callback(prevValue, currentVal, i, array);
+            } else {
+                res += callback(prevValue, currentVal, i, array);
+            }
         }
 
         prevValue = currentVal;
