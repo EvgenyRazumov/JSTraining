@@ -7,7 +7,7 @@ FunctionalProgramming.fold = function(array, callback, initialValue) {
     for (var i = 0; i < array.length; i++) {
         currentVal = array[i];
 
-        if (!initialValue && i == 0) {
+        if (arguments.length < 3 && i == 0) {
             //go to the next step
             prevValue = currentVal;    
         } else {
